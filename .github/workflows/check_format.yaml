@@ -26,4 +26,4 @@ jobs:
       - name: Run eslint
         run: |
           cd population-visualization
-          npx eslint .
+          npx eslint --ext ".js,.ts,.tsx" --ignore-path .gitignore .
