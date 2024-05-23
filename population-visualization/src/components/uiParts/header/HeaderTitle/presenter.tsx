@@ -10,8 +10,8 @@ type Props = {
   title: string;
 } & ContainerProps;
 
-const HeaderTitle: React.FC<Props> = ({ title, className }) => (
+const HeaderTitlePresentational: React.FC<Props> = ({ title, className }) => (
   <h1 className={`header-title ${className}`}>{title}</h1>
 );
 
-export default React.memo(HeaderTitle);
+export default React.memo(HeaderTitlePresentational);
