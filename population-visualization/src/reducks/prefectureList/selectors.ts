@@ -1,4 +1,4 @@
-import { RootState } from "../store";
+import { RootState } from '../store';
 
 export const selectPrefectures = (state: RootState) => state.prefectures.list;
 export const selectPrefecturesLoading = (state: RootState) =>
