@@ -1,1 +1,1 @@
-export { default as Button } from './container';
+export { default as HeaderTitleContainer } from './container';
