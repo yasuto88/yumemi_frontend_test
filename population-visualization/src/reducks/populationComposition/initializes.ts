@@ -1,4 +1,4 @@
-import { PopulationState } from "./types";
+import { PopulationState } from './types';
 
 export const initialState: PopulationState = {
   data: null,
