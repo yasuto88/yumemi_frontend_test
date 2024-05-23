@@ -1,9 +1,9 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PopulationType } from "./types";
-import { initialState } from "./initializes";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PopulationType } from './types';
+import { initialState } from './initializes';
 
 const populationTypeSlice = createSlice({
-  name: "populationType",
+  name: 'populationType',
   initialState,
   reducers: {
     selectPopulationType(state, action: PayloadAction<PopulationType>) {
