@@ -3,8 +3,8 @@ import {
   fetchPopulationStart,
   fetchPopulationSuccess,
   fetchPopulationFailure,
-} from "./slices";
-import { PopulationCompositionResponse } from "./types";
+} from './slices';
+import { PopulationCompositionResponse } from './types';
 
 // .envからAPIキーを取得する
 const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
