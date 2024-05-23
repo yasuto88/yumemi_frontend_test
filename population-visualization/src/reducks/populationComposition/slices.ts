@@ -1,9 +1,9 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PopulationCompositionResponse } from "./types";
-import { initialState } from "./initializes";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PopulationCompositionResponse } from './types';
+import { initialState } from './initializes';
 
 const populationSlice = createSlice({
-  name: "population",
+  name: 'population',
   initialState,
   reducers: {
     fetchPopulationStart(state) {
@@ -12,7 +12,7 @@ const populationSlice = createSlice({
     },
     fetchPopulationSuccess(
       state,
-      action: PayloadAction<PopulationCompositionResponse>
+      action: PayloadAction<PopulationCompositionResponse>,
     ) {
       state.loading = false;
       state.data = action.payload;
