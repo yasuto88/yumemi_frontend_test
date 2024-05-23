@@ -13,7 +13,9 @@ describe('HeaderTitle', () => {
   it('applies the passed className', () => {
     const title = 'Test Title';
     const className = 'custom-class';
-    const { container } = render(<HeaderTitle title={title} className={className} />);
+    const { container } = render(
+      <HeaderTitle title={title} className={className} />,
+    );
     const headerElement = container.querySelector('h1');
     expect(headerElement).toHaveClass('header-title');
     expect(headerElement).toHaveClass(className);

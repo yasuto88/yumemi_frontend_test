@@ -10,7 +10,9 @@ describe('useTitle', () => {
 
   it('should update the title after fetching', async () => {
     const mockGetTitle = jest.fn().mockResolvedValue('人口データの可視化');
-    const { result, waitForNextUpdate } = renderHook(() => useTitle(mockGetTitle));
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useTitle(mockGetTitle),
+    );
 
     // useEffectの完了を待つ
     await waitForNextUpdate();

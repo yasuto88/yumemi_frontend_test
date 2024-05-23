@@ -6,9 +6,7 @@ interface Props {
 
 // 仮のページコンポーネント
 const Component: React.FC<Props> = (props) => {
-  return (
-    <></>
-  );
+  return <></>;
 };
 
 export default Component;
