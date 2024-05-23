@@ -1,4 +1,5 @@
 import React from 'react';
+import { Header } from '../uniqueParts/Header';
 
 interface Props {
   // props here
@@ -6,7 +7,11 @@ interface Props {
 
 // 仮のページコンポーネント
 const Component: React.FC<Props> = (props) => {
-  return <></>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default Component;
