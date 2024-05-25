@@ -19,4 +19,3 @@ const HomePresentational: React.FC<Props> = ({ className }) => (
 );
 
 export default React.memo(HomePresentational);
-
