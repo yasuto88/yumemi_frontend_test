@@ -1,8 +1,8 @@
 import React from 'react';
 import './presenter.css';
 import { Header } from '../../uniqueParts/Header';
-import { CheckBoxGroup } from './CheckBoxGroup';
 import { Chart } from '../../uniqueParts/Chart';
+import { CheckBoxGroup } from '../../uniqueParts/CheckBoxGroup';
 
 export type ContainerProps = {
   className?: string;

@@ -3,8 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import CheckBoxContainer from './container';
 import { usePrefectures } from './hooks';
-import { Prefecture } from '../../../../reducks/prefectureList/types';
-import store from '../../../../reducks/store';
+import { Prefecture } from '../../../reducks/prefectureList';
+import store from '../../../reducks/store';
 
 jest.mock('./hooks');
 
