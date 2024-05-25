@@ -12,6 +12,7 @@ import {
 import './presenter.css';
 import { usePopulationComposition } from './hooks';
 import { PopulationCompositionData } from '../../../reducks/populationComposition';
+import { ChartTypeSelect } from './ChartTypeSelect';
 
 export type ContainerProps = {
   className?: string;
@@ -26,32 +27,35 @@ const ChartPresentational: React.FC<Props> = ({ className, data }) => {
     <div className={`chart ${className}`}>
       <h1>Population Composition</h1>
       {data && data.length > 0 ? (
-        <ResponsiveContainer width="100%" height={400}>
-          <LineChart
-            data={data}
-            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            {Object.keys(data[0])
-              .filter((key) => key !== 'name')
-              .map((label) => (
-                <Line
-                  key={label}
-                  type="monotone"
-                  dataKey={label}
-                  name={label}
-                  stroke={`#${Math.floor(Math.random() * 16777215).toString(
-                    16,
-                  )}`}
-                  activeDot={{ r: 8 }}
-                />
-              ))}
-          </LineChart>
-        </ResponsiveContainer>
+        <div className='chart-wrapper'>
+          <ResponsiveContainer width="100%" height={400}>
+            <LineChart
+              data={data}
+              margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              {Object.keys(data[0])
+                .filter((key) => key !== 'name')
+                .map((label) => (
+                  <Line
+                    key={label}
+                    type="monotone"
+                    dataKey={label}
+                    name={label}
+                    stroke={`#${Math.floor(Math.random() * 16777215).toString(
+                      16,
+                    )}`}
+                    activeDot={{ r: 8 }}
+                  />
+                ))}
+            </LineChart>
+          </ResponsiveContainer>
+          <ChartTypeSelect />
+        </div>
       ) : (
         <p>No data available</p>
       )}
