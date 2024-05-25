@@ -11,19 +11,6 @@ const CheckBoxContainer: React.FC = () => {
   const [selectedPrefecture, setSelectedPrefecture] =
     React.useState<SelectedPrefecture | null>(null);
 
-  const handleCheckBoxChange = (label: string, checked: boolean) => {
-    if (checked) {
-      const selectedPref = prefectures.find(
-        (pref: Prefecture) => pref.prefName === label,
-      );
-      if (selectedPref) {
-        setSelectedPrefecture(selectedPref);
-      }
-    } else {
-      setSelectedPrefecture(null);
-    }
-  };
-
   if (loading) {
     return <Loading />;
   }
@@ -38,11 +25,7 @@ const CheckBoxContainer: React.FC = () => {
   }));
 
   return (
-    <CheckBoxGroupPresentational
-      options={options}
-      className="checkbox-group"
-      onChange={handleCheckBoxChange}
-    />
+    <CheckBoxGroupPresentational options={options} className="checkbox-group" />
   );
 };
 

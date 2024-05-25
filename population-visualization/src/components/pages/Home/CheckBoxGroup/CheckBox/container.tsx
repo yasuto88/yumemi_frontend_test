@@ -8,9 +8,9 @@ const CheckBoxContainer: React.FC<ContainerProps> = (props) => {
   return (
     <CheckBoxPresentational
       {...props}
-      checked={isSelected(props.label)}
       onChange={(checked) => handleCheckBoxChange(props.label, checked)}
       label={props.label}
+      checked={isSelected(props.label)}
     />
   );
 };

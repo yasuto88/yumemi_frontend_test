@@ -11,9 +11,9 @@ import {
  * @returns 都道府県リスト、ロード状態、エラーメッセージを含むオブジェクト
  */
 export function usePrefectures() {
-  const prefectures = useSelector((state: RootState) =>
-    selectPrefectures(state),
-  );
+  const prefectures = useSelector((state: RootState) => {
+    return selectPrefectures(state);
+  });
   const loading = useSelector((state: RootState) =>
     selectPrefecturesLoading(state),
   );
