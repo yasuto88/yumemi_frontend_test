@@ -1,8 +1,7 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import CheckBoxContainer from './container';
 import { useSelectedPrefecture } from './hooks';
-import { SelectedPrefecture } from '../../../../reducks/selectedPrefecture/types';
+import { SelectedPrefecture } from '../../../../../reducks/selectedPrefecture/types';
 
 jest.mock('./hooks');
 

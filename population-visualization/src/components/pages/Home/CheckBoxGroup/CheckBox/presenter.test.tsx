@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import CheckBoxPresentational from './presenter';
-import { SelectedPrefecture } from '../../../../reducks/selectedPrefecture/types';
+import { SelectedPrefecture } from '../../../../../reducks/selectedPrefecture/types';
 
 describe('CheckBoxPresentational', () => {
   const label: SelectedPrefecture = { prefCode: 1, prefName: 'Tokyo' };

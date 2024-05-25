@@ -1,6 +1,6 @@
 import React from 'react';
 import './presenter.css';
-import { SelectedPrefecture } from '../../../../reducks/selectedPrefecture/types';
+import { SelectedPrefecture } from '../../../../../reducks/selectedPrefecture/types';
 
 export type ContainerProps = {
   className?: string;
