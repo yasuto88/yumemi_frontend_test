@@ -1,11 +1,6 @@
-export interface PopulationData {
-  year: number;
-  value: number;
-}
-
 export interface PopulationCompositionData {
-  label: string;
-  data: PopulationData[];
+  name: string;
+  [key: string]: string | number;
 }
 
 export interface PopulationCompositionResponse {
@@ -14,6 +9,11 @@ export interface PopulationCompositionResponse {
     boundaryYear: number;
     data: PopulationCompositionData[];
   };
+}
+
+export interface TransformedData {
+  name: string;
+  [key: string]: string | number;
 }
 
 export interface PopulationState {
