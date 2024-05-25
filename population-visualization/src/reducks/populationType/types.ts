@@ -5,5 +5,5 @@ export type PopulationType =
   | '老年人口';
 
 export interface PopulationTypeState {
-  selectedType: PopulationType;
+  selectedType: PopulationType[];
 }
