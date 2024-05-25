@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../reducks/store';
+import { RootState } from '../../../../reducks/store';
 import {
   selectPrefectures,
   selectPrefecturesError,
   selectPrefecturesLoading,
-} from '../../../reducks/prefectureList/selectors';
+} from '../../../../reducks/prefectureList/selectors';
 
 /**
  * 都道府県リストの状態を監視するカスタムフック
