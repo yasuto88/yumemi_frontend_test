@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import CheckBoxContainer from './container';
 import { usePrefectures } from './hooks';
 import { Prefecture } from '../../../../reducks/prefectureList/types';
@@ -27,8 +27,8 @@ describe('CheckBoxContainer', () => {
       loading: true,
       error: null,
     });
-    const { getByText } = render(<CheckBoxContainer />);
-    expect(getByText('Loading...')).toBeInTheDocument();
+    render(<CheckBoxContainer />);
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
   test('should render error state', () => {
@@ -37,8 +37,8 @@ describe('CheckBoxContainer', () => {
       loading: false,
       error: 'Error occurred',
     });
-    const { getByText } = render(<CheckBoxContainer />);
-    expect(getByText('Error: Error occurred')).toBeInTheDocument();
+    render(<CheckBoxContainer />);
+    expect(screen.getByText('Error: Error occurred')).toBeInTheDocument();
   });
 
   test('should render checkbox options', () => {
@@ -47,8 +47,8 @@ describe('CheckBoxContainer', () => {
       loading: false,
       error: null,
     });
-    const { getAllByRole } = render(<CheckBoxContainer />);
-    const checkboxes = getAllByRole('checkbox');
+    render(<CheckBoxContainer />);
+    const checkboxes = screen.getAllByRole('checkbox');
     expect(checkboxes).toHaveLength(mockPrefectures.length);
     checkboxes.forEach((checkbox, index) => {
       expect(checkbox).toBeInTheDocument();
@@ -64,10 +64,10 @@ describe('CheckBoxContainer', () => {
       loading: false,
       error: null,
     });
-    const { getAllByRole } = render(<CheckBoxContainer />);
-    const checkboxes = getAllByRole('checkbox');
+    render(<CheckBoxContainer />);
+    const checkboxes = screen.getAllByRole('checkbox');
 
-    // チェックボックスの id や name 属性を使ってラベルを特定する
+    // チェックボックスのラベルを特定する
     const tokyoCheckbox = checkboxes.find(
       (checkbox) =>
         (checkbox.nextSibling as HTMLElement).textContent === 'Tokyo',

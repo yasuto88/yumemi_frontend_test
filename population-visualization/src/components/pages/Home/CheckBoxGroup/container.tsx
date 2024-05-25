@@ -3,6 +3,8 @@ import { usePrefectures } from './hooks';
 import CheckBoxGroupPresentational, { CheckBoxOption } from './presenter';
 import { SelectedPrefecture } from '../../../../reducks/selectedPrefecture/types';
 import { Prefecture } from '../../../../reducks/prefectureList/types';
+import { Loading } from '../../../uiParts/Loading';
+import { Error } from '../../../uiParts/Error';
 
 const CheckBoxContainer: React.FC = () => {
   const { prefectures, loading, error } = usePrefectures();
@@ -23,11 +25,11 @@ const CheckBoxContainer: React.FC = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <Error message={`Error: ${error}`} />;
   }
 
   const options: CheckBoxOption[] = prefectures.map((pref: Prefecture) => ({

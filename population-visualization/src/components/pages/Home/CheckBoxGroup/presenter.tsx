@@ -1,7 +1,5 @@
 import React from 'react';
-import CheckBoxPresentational, {
-  ContainerProps as CheckBoxPresentationalProps,
-} from './CheckBox/presenter';
+import CheckBoxPresentational from './CheckBox/presenter';
 import './presenter.css';
 import { SelectedPrefecture } from '../../../../reducks/selectedPrefecture/types';
 
