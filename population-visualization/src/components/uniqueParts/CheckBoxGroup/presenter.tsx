@@ -20,7 +20,7 @@ const CheckBoxGroupPresentational: React.FC<Props> = ({
 }) => (
   <div className={`checkbox-group ${className}`}>
     {options.map((option) => (
-      <CheckBox label={option.label} />
+      <CheckBox label={option.label} key={option.label.prefCode} />
     ))}
   </div>
 );
