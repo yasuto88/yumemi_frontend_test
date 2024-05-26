@@ -25,10 +25,12 @@ const HomePresentational: React.FC<Props> = ({
     {isPc && <SideBar className="sidebar" />}
     <div className="main-content">
       <Header />
-      {isTablet ||
-        (isSp && (
-          <Modal children={<CheckBoxGroup />} buttonText="都道府県を選択" />
-        ))}
+      {isTablet && (
+        <Modal children={<CheckBoxGroup />} buttonText="都道府県を選択" />
+      )}
+      {isSp && (
+        <Modal children={<CheckBoxGroup />} buttonText="都道府県を選択" />
+      )}
       <Chart />
     </div>
   </div>
