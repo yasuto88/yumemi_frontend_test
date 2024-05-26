@@ -5,7 +5,8 @@ import { Loading } from '../../uiParts/Loading';
 import { Error } from '../../uiParts/Error';
 
 const ChartContainer: React.FC<ContainerProps> = (props) => {
-  const { data, loading, error } = usePopulationComposition();
+  const { data, loading, error, selectedPrefecture } =
+    usePopulationComposition();
 
   if (loading) {
     return <Loading />;
@@ -15,7 +16,13 @@ const ChartContainer: React.FC<ContainerProps> = (props) => {
     return <Error message={error} />;
   }
 
-  return <ChartPresentational className="chart" data={data} />;
+  return (
+    <ChartPresentational
+      className="chart"
+      data={data}
+      selectedPrefecture={selectedPrefecture}
+    />
+  );
 };
 
 export default ChartContainer;

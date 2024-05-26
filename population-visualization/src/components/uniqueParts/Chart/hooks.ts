@@ -9,9 +9,12 @@ import {
   TransformedData,
 } from '../../../reducks/populationComposition/types';
 import { selectPopulationType } from '../../../reducks/populationType';
+import { selectPrefecture } from '../../../reducks/selectedPrefecture/slices';
+import { selectSelectedPrefecture } from '../../../reducks/selectedPrefecture';
 
 export const usePopulationComposition = () => {
   const selectedTypes = useSelector(selectPopulationType);
+  const selectedPrefecture = useSelector(selectSelectedPrefecture);
   const response: PopulationCompositionResponse | null =
     useSelector(selectPopulation);
   const loading: boolean = useSelector(selectPopulationLoading);
@@ -30,5 +33,11 @@ export const usePopulationComposition = () => {
       })
     : null;
 
-  return { data: filteredData, loading, error, selectedTypes };
+  return {
+    data: filteredData,
+    loading,
+    error,
+    selectedTypes,
+    selectedPrefecture,
+  };
 };

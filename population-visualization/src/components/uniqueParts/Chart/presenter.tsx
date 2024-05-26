@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   LineChart,
   Line,
@@ -12,6 +12,7 @@ import {
 import './presenter.css';
 import { PopulationCompositionData } from '../../../reducks/populationComposition';
 import { ChartTypeSelect } from './ChartTypeSelect';
+import { SelectedPrefecture } from '../../../reducks/selectedPrefecture';
 
 export type ContainerProps = {
   className?: string;
@@ -19,6 +20,7 @@ export type ContainerProps = {
 
 type Props = {
   data: PopulationCompositionData[] | null;
+  selectedPrefecture: SelectedPrefecture | null;
 } & ContainerProps;
 
 const colorMap: { [key: string]: string } = {
@@ -28,21 +30,43 @@ const colorMap: { [key: string]: string } = {
   老年人口: '#9254de', // elderly population
 };
 
-const ChartPresentational: React.FC<Props> = ({ className, data }) => {
+const ChartPresentational: React.FC<Props> = ({
+  className,
+  data,
+  selectedPrefecture,
+}) => {
+  const [fontSize, setFontSize] = useState(12);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newFontSize = window.innerWidth < 600 ? 10 : 12;
+      setFontSize(newFontSize);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // 初回実行
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className={`chart ${className}`}>
-      <h1>Population Composition</h1>
+      {selectedPrefecture ? (
+        <h2>{selectedPrefecture.prefName}の人口推移グラフ</h2>
+      ) : (
+        <h2>都道府県を選択してください</h2>
+      )}
       {data && data.length > 0 ? (
         <div className="chart-wrapper" data-testid="chart-wrapper">
           <ChartTypeSelect />
           <ResponsiveContainer width="100%" height={400}>
             <LineChart
               data={data}
-              margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+              margin={{ top: 5, right: 16, left: 8, bottom: 5 }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
+              <XAxis dataKey="name" tick={{ fontSize }} />
+              <YAxis tick={{ fontSize }} />
               <Tooltip />
               <Legend />
               {Object.keys(data[0])
@@ -61,7 +85,7 @@ const ChartPresentational: React.FC<Props> = ({ className, data }) => {
           </ResponsiveContainer>
         </div>
       ) : (
-        <p>No data available</p>
+        <p></p>
       )}
     </div>
   );
