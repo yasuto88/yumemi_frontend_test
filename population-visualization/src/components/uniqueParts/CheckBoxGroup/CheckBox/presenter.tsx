@@ -5,11 +5,15 @@ import { SelectedPrefecture } from '../../../../../reducks/selectedPrefecture/ty
 export type ContainerProps = {
   className?: string;
   label: SelectedPrefecture;
-  checked: boolean;
-  onChange: (checked: boolean) => void;
 };
 
-const CheckBoxPresentational: React.FC<ContainerProps> = ({
+type Props = {
+  checked: boolean;
+  className?: string;
+  onChange: (checked: boolean) => void;
+} & ContainerProps;
+
+const CheckBoxPresentational: React.FC<Props> = ({
   label,
   checked,
   onChange,
@@ -20,6 +24,7 @@ const CheckBoxPresentational: React.FC<ContainerProps> = ({
       type="checkbox"
       checked={checked}
       onChange={(e) => onChange(e.target.checked)}
+      key={label.prefCode}
     />
     {label.prefName}
   </div>

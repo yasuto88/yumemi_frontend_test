@@ -1,8 +1,10 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { Provider } from 'react-redux';
 import CheckBoxContainer from './container';
 import { usePrefectures } from './hooks';
-import { Prefecture } from '../../../../reducks/prefectureList/types';
+import { Prefecture } from '../../../reducks/prefectureList';
+import store from '../../../reducks/store';
 
 jest.mock('./hooks');
 
@@ -21,13 +23,17 @@ describe('CheckBoxContainer', () => {
     jest.clearAllMocks();
   });
 
+  const renderWithProvider = (ui: React.ReactElement) => {
+    return render(<Provider store={store}>{ui}</Provider>);
+  };
+
   test('should render loading state', () => {
     mockUsePrefectures.mockReturnValue({
       prefectures: [],
       loading: true,
       error: null,
     });
-    render(<CheckBoxContainer />);
+    renderWithProvider(<CheckBoxContainer />);
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
@@ -37,7 +43,7 @@ describe('CheckBoxContainer', () => {
       loading: false,
       error: 'Error occurred',
     });
-    render(<CheckBoxContainer />);
+    renderWithProvider(<CheckBoxContainer />);
     expect(screen.getByText('Error: Error occurred')).toBeInTheDocument();
   });
 
@@ -47,7 +53,7 @@ describe('CheckBoxContainer', () => {
       loading: false,
       error: null,
     });
-    render(<CheckBoxContainer />);
+    renderWithProvider(<CheckBoxContainer />);
     const checkboxes = screen.getAllByRole('checkbox');
     expect(checkboxes).toHaveLength(mockPrefectures.length);
     checkboxes.forEach((checkbox, index) => {
@@ -64,7 +70,7 @@ describe('CheckBoxContainer', () => {
       loading: false,
       error: null,
     });
-    render(<CheckBoxContainer />);
+    renderWithProvider(<CheckBoxContainer />);
     const checkboxes = screen.getAllByRole('checkbox');
 
     // チェックボックスのラベルを特定する

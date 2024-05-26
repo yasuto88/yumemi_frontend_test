@@ -16,21 +16,12 @@ describe('CheckBoxContainer', () => {
   test('renders the checkbox with the correct label and state', () => {
     const label: SelectedPrefecture = { prefCode: 1, prefName: 'Tokyo' };
     mockUseSelectedPrefecture.mockReturnValue({
-      selectedPrefecture: label,
       handleCheckBoxChange: jest.fn(),
       isSelected: jest.fn().mockReturnValue(true),
+      selectedPrefecture: label,
     });
 
-    render(
-      <CheckBoxContainer
-        className="test-class"
-        label={label}
-        checked={false}
-        onChange={function (checked: boolean): void {
-          throw new Error('Function not implemented.');
-        }}
-      />,
-    );
+    render(<CheckBoxContainer className="test-class" label={label} />);
 
     const checkbox = screen.getByRole('checkbox') as HTMLInputElement;
     const labelText = screen.getByText(label.prefName);
@@ -45,21 +36,12 @@ describe('CheckBoxContainer', () => {
     const label: SelectedPrefecture = { prefCode: 1, prefName: 'Tokyo' };
     const handleCheckBoxChange = jest.fn();
     mockUseSelectedPrefecture.mockReturnValue({
-      selectedPrefecture: label,
       handleCheckBoxChange,
       isSelected: jest.fn().mockReturnValue(false),
+      selectedPrefecture: label,
     });
 
-    render(
-      <CheckBoxContainer
-        className="test-class"
-        label={label}
-        checked={false}
-        onChange={function (checked: boolean): void {
-          throw new Error('Function not implemented.');
-        }}
-      />,
-    );
+    render(<CheckBoxContainer className="test-class" label={label} />);
 
     const checkbox = screen.getByRole('checkbox') as HTMLInputElement;
     fireEvent.click(checkbox);
