@@ -1,0 +1,110 @@
+/* presenter.css */
+.chart-type-select {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.checkbox input[type='checkbox'] {
+  display: none; /* checkboxを非表示にする */
+}
+
+.sample_label {
+  position: relative;
+  padding: 4px 0 0 28px; /* ボックス内側の余白を指定する */
+  cursor: pointer;
+}
+
+.sample_label:after,
+.sample_label:before {
+  position: absolute;
+  content: '';
+  display: block;
+  top: 50%;
+  transition: opacity 0.3s ease;
+}
+
+.sample_label:after {
+  left: 0;
+  margin-top: -9px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+}
+
+.sample_label:before {
+  left: 6px;
+  margin-top: -5px;
+  width: 5px;
+  height: 9px;
+  border-right: 3px solid;
+  border-bottom: 3px solid;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+input[type='checkbox']:checked + label.sample_label:before {
+  opacity: 1;
+}
+
+.sample_label:hover:after {
+  border-color: #0171bd;
+}
+
+/* カラースタイル */
+label.sample_label.general-population:before {
+  border-right-color: #36cfc9;
+  border-bottom-color: #36cfc9;
+}
+
+label.sample_label.young-population:before {
+  border-right-color: #a0d911;
+  border-bottom-color: #a0d911;
+}
+
+label.sample_label.working-age-population:before {
+  border-right-color: #4096ff;
+  border-bottom-color: #4096ff;
+}
+
+label.sample_label.elderly-population:before {
+  border-right-color: #9254de;
+  border-bottom-color: #9254de;
+}
+
+.chart-type-select label span {
+  font-weight: bold;
+}
+
+.general-population {
+  color: #36cfc9;
+}
+
+.young-population {
+  color: #a0d911;
+}
+
+.working-age-population {
+  color: #4096ff;
+}
+
+.elderly-population {
+  color: #9254de;
+}

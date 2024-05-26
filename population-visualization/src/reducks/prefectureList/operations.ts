@@ -18,7 +18,7 @@ export const fetchPrefectures = (): AppThunk => async (dispatch) => {
       },
     );
     // 6秒間の遅延を発生させる
-    await new Promise((resolve) => setTimeout(resolve, 6000));
+    // await new Promise((resolve) => setTimeout(resolve, 6000));
     const data = await response.json();
     const prefectures: Prefecture[] = data.result;
     dispatch(fetchPrefecturesSuccess(prefectures));

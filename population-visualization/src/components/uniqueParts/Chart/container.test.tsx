@@ -1,19 +1,13 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import ChartContainer from './container';
 import { usePopulationComposition } from './hooks';
-import { Loading } from '../../uiParts/Loading';
-import { PopulationCompositionData } from '../../../reducks/populationComposition';
-import { Error } from '../../uiParts/Error';
+import { Provider } from 'react-redux';
+import store from '../../../reducks/store';
 
-// モックの設定
 jest.mock('./hooks');
 
-describe('usePopulationComposition', () => {
-  const mockPopulationCompositionData: PopulationCompositionData[] = [
-    { name: '1960', population: 5000 },
-    { name: '1965', population: 6000 },
-  ];
-
+describe('ChartContainer', () => {
   const mockUsePopulationComposition =
     usePopulationComposition as jest.MockedFunction<
       typeof usePopulationComposition
@@ -23,46 +17,66 @@ describe('usePopulationComposition', () => {
     jest.clearAllMocks();
   });
 
+  const renderWithProvider = (ui: React.ReactElement) => {
+    return render(<Provider store={store}>{ui}</Provider>);
+  };
+
   test('should render loading state', () => {
     mockUsePopulationComposition.mockReturnValue({
       data: null,
       loading: true,
       error: null,
+      selectedTypes: [],
     });
-    render(<Loading />);
+    render(<ChartContainer />);
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
   test('should render error state', () => {
+    const errorMessage = 'Error occurred';
     mockUsePopulationComposition.mockReturnValue({
       data: null,
       loading: false,
-      error: 'Error occurred',
+      error: errorMessage,
+      selectedTypes: [],
     });
-    render(<Error message="Error occurred" />);
-    expect(screen.getByText('Error occurred')).toBeInTheDocument();
+    render(<ChartContainer />);
+    expect(screen.getByText(errorMessage)).toBeInTheDocument();
   });
 
-  test('should render chart data', () => {
+  test('should render chart presentational component', () => {
+    const mockData = [
+      {
+        name: '1960',
+        総人口: 5000,
+        年少人口: 1000,
+        生産年齢人口: 3000,
+        老年人口: 1000,
+      },
+      {
+        name: '1965',
+        総人口: 6000,
+        年少人口: 1200,
+        生産年齢人口: 3600,
+        老年人口: 1200,
+      },
+    ];
     mockUsePopulationComposition.mockReturnValue({
-      data: mockPopulationCompositionData,
+      data: mockData,
       loading: false,
       error: null,
+      selectedTypes: ['総人口', '年少人口', '生産年齢人口', '老年人口'],
     });
-    const TestComponent = () => {
-      const { data } = usePopulationComposition();
-      return (
-        <div>
-          {data?.map((item) => (
-            <div key={item.name}>
-              {item.name}: {item.population}
-            </div>
-          ))}
-        </div>
-      );
-    };
-    render(<TestComponent />);
-    expect(screen.getByText('1960: 5000')).toBeInTheDocument();
-    expect(screen.getByText('1965: 6000')).toBeInTheDocument();
+    renderWithProvider(<ChartContainer />);
+    expect(screen.getByText('Population Composition')).toBeInTheDocument();
+
+    // Check that the chart wrapper is present
+    const chartWrapper = screen.getByTestId('chart-wrapper');
+    expect(chartWrapper).toBeInTheDocument();
+
+    // Check that the labels are rendered
+    ['総人口', '年少人口', '生産年齢人口', '老年人口'].forEach((key) => {
+      expect(screen.getByText(key)).toBeInTheDocument();
+    });
   });
 });
