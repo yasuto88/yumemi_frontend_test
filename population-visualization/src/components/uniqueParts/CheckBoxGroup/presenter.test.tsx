@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import CheckBoxGroupPresentational, { CheckBoxOption } from './presenter';
-import { SelectedPrefecture } from '../../../../reducks/selectedPrefecture/types';
+import { SelectedPrefecture } from '../../../reducks/selectedPrefecture';
 
 // Mock the CheckBox component
 jest.mock('./CheckBox', () => ({
