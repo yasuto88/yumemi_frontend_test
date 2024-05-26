@@ -1,0 +1,14 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --font-size-small: 12px;
+  --font-size-medium: 16px;
+  --font-size-large: 24px;
+  --font-family: 'Arial, sans-serif';
+
+  /* Population types colors */
+  --color-general-population: #36cfc9; /* 総人口 - 青緑色 */
+  --color-young-population: #a0d911; /* 年少人口 - ライムグリーン */
+  --color-working-age-population: #4096ff; /* 生産年齢人口 - 青色 */
+  --color-elderly-population: #9254de; /* 老年人口 - 紫色 */
+}

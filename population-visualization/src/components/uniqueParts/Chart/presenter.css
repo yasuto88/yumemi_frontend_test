@@ -1,8 +1,12 @@
+.chart {
+  padding: 1rem;
+}
+
 .chart-wrapper {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px;
+  padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
