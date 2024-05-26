@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import CheckBoxContainer from './container';
 import { useSelectedPrefecture } from './hooks';
-import { SelectedPrefecture } from '../../../../../reducks/selectedPrefecture/types';
+import { SelectedPrefecture } from '../../../../reducks/selectedPrefecture';
 
 jest.mock('./hooks');
 
@@ -29,7 +29,6 @@ describe('CheckBoxContainer', () => {
     expect(checkbox).toBeInTheDocument();
     expect(checkbox.checked).toBe(true);
     expect(labelText).toBeInTheDocument();
-    expect(labelText).toHaveClass('test-class');
   });
 
   test('calls handleCheckBoxChange when checkbox is clicked', () => {

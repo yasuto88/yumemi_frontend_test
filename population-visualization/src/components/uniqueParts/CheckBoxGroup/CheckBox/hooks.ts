@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../../../../reducks/store';
-import { SelectedPrefecture } from '../../../../../reducks/selectedPrefecture/types';
-import { selectPrefecture } from '../../../../../reducks/selectedPrefecture/slices';
+import { RootState } from '../../../../reducks/store';
+import { SelectedPrefecture } from '../../../../reducks/selectedPrefecture';
+import { selectPrefecture } from '../../../../reducks/selectedPrefecture/slices';
 
 /**
  * 都道府県の選択状態を管理するカスタムフック

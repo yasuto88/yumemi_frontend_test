@@ -1,8 +1,8 @@
 import { renderHook, act } from '@testing-library/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSelectedPrefecture } from './hooks';
-import { selectPrefecture } from '../../../../../reducks/selectedPrefecture/slices';
-import { SelectedPrefecture } from '../../../../../reducks/selectedPrefecture/types';
+import { SelectedPrefecture } from '../../../../reducks/selectedPrefecture';
+import { selectPrefecture } from '../../../../reducks/selectedPrefecture/slices';
 
 jest.mock('react-redux', () => ({
   useDispatch: jest.fn(),

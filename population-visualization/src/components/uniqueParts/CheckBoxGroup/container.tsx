@@ -1,10 +1,10 @@
 import React from 'react';
 import { usePrefectures } from './hooks';
 import CheckBoxGroupPresentational, { CheckBoxOption } from './presenter';
-import { SelectedPrefecture } from '../../../../reducks/selectedPrefecture/types';
-import { Prefecture } from '../../../../reducks/prefectureList/types';
-import { Loading } from '../../../uiParts/Loading';
-import { Error } from '../../../uiParts/Error';
+import { SelectedPrefecture } from '../../../reducks/selectedPrefecture';
+import { Loading } from '../../uiParts/Loading';
+import { Error } from '../../uiParts/Error';
+import { Prefecture } from '../../../reducks/prefectureList';
 
 const CheckBoxContainer: React.FC = () => {
   const { prefectures, loading, error } = usePrefectures();

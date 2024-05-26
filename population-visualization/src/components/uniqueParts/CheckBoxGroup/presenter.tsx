@@ -1,8 +1,8 @@
 import React from 'react';
 import CheckBoxPresentational from './CheckBox/presenter';
 import './presenter.css';
-import { SelectedPrefecture } from '../../../../reducks/selectedPrefecture/types';
 import { CheckBox } from './CheckBox';
+import { SelectedPrefecture } from '../../../reducks/selectedPrefecture';
 
 export type CheckBoxOption = {
   label: SelectedPrefecture;
