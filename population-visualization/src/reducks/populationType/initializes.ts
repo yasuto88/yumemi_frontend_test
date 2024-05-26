@@ -1,7 +1,5 @@
 import { PopulationTypeState } from './types';
 
 export const initialState: PopulationTypeState = {
-  selectedType: [
-    '総人口'
-  ],
+  selectedType: ['総人口'],
 };

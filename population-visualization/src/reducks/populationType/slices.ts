@@ -2,13 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { PopulationType, PopulationTypeState } from './types';
 import { initialState } from './initializes';
 
-const initialPopulationTypeState: PopulationTypeState = {
-  selectedType: [],
-};
-
 const populationTypeSlice = createSlice({
   name: 'populationType',
-  initialState: initialPopulationTypeState,
+  initialState: initialState,
   reducers: {
     togglePopulationType(state, action: PayloadAction<PopulationType>) {
       if (state.selectedType.includes(action.payload)) {
