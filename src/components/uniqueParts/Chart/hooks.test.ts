@@ -21,10 +21,11 @@ describe('usePopulationComposition', () => {
 
   test('should return loading state when loading is true', () => {
     mockUseSelector
-      .mockReturnValueOnce([])
-      .mockReturnValueOnce(null)
-      .mockReturnValueOnce(true)
-      .mockReturnValueOnce(null);
+      .mockReturnValueOnce(['総人口', '年少人口', '生産年齢人口', '老年人口']) // selectedTypes
+      .mockReturnValueOnce(null) // selectedPrefecture
+      .mockReturnValueOnce(null) // response
+      .mockReturnValueOnce(true) // loading
+      .mockReturnValueOnce(null); // error
 
     const { result } = renderHook(() => usePopulationComposition());
 
@@ -35,10 +36,11 @@ describe('usePopulationComposition', () => {
 
   test('should return error state when an error occurs', () => {
     mockUseSelector
-      .mockReturnValueOnce([])
-      .mockReturnValueOnce(null)
-      .mockReturnValueOnce(false)
-      .mockReturnValueOnce('Error occurred');
+      .mockReturnValueOnce(['総人口', '年少人口', '生産年齢人口', '老年人口']) // selectedTypes
+      .mockReturnValueOnce(null) // selectedPrefecture
+      .mockReturnValueOnce(null) // response
+      .mockReturnValueOnce(false) // loading
+      .mockReturnValueOnce('Error occurred'); // error
 
     const { result } = renderHook(() => usePopulationComposition());
 
@@ -89,10 +91,11 @@ describe('usePopulationComposition', () => {
     ];
 
     mockUseSelector
-      .mockReturnValueOnce(['総人口', '年少人口', '生産年齢人口', '老年人口'])
-      .mockReturnValueOnce(mockResponse)
-      .mockReturnValueOnce(false)
-      .mockReturnValueOnce(null);
+      .mockReturnValueOnce(['総人口', '年少人口', '生産年齢人口', '老年人口']) // selectedTypes
+      .mockReturnValueOnce(null) // selectedPrefecture
+      .mockReturnValueOnce(mockResponse) // response
+      .mockReturnValueOnce(false) // loading
+      .mockReturnValueOnce(null); // error
 
     const { result } = renderHook(() => usePopulationComposition());
 
