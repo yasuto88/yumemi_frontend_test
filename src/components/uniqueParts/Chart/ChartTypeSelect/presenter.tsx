@@ -14,7 +14,6 @@ type Props = {
 
 const ChartTypeSelectPresentational: React.FC<Props> = ({
   className,
-  selectedType,
   onChange,
   checked,
 }) => {
