@@ -42,7 +42,7 @@ describe('HomeContainer', () => {
 
   test('should pass isSp, isTablet, and isPc to HomePresentational based on media queries', () => {
     mockUseMediaQuery
-      .mockReturnValueOnce(true)  // isSp
+      .mockReturnValueOnce(true) // isSp
       .mockReturnValueOnce(false) // isTablet
       .mockReturnValueOnce(false); // isPc
 
@@ -55,12 +55,12 @@ describe('HomeContainer', () => {
         isPc: false,
         className: 'test-class',
       }),
-      {}
+      {},
     );
 
     mockUseMediaQuery
       .mockReturnValueOnce(false) // isSp
-      .mockReturnValueOnce(true)  // isTablet
+      .mockReturnValueOnce(true) // isTablet
       .mockReturnValueOnce(false); // isPc
 
     render(<HomeContainer className="test-class" />);
@@ -72,7 +72,7 @@ describe('HomeContainer', () => {
         isPc: false,
         className: 'test-class',
       }),
-      {}
+      {},
     );
 
     mockUseMediaQuery
@@ -89,7 +89,7 @@ describe('HomeContainer', () => {
         isPc: true,
         className: 'test-class',
       }),
-      {}
+      {},
     );
   });
 });
