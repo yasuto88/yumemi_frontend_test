@@ -27,6 +27,7 @@ describe('ChartContainer', () => {
       loading: true,
       error: null,
       selectedTypes: [],
+      selectedPrefecture: null,
     });
     render(<ChartContainer />);
     expect(screen.getByText('Loading...')).toBeInTheDocument();
@@ -39,6 +40,7 @@ describe('ChartContainer', () => {
       loading: false,
       error: errorMessage,
       selectedTypes: [],
+      selectedPrefecture: null,
     });
     render(<ChartContainer />);
     expect(screen.getByText(errorMessage)).toBeInTheDocument();
@@ -65,10 +67,11 @@ describe('ChartContainer', () => {
       data: mockData,
       loading: false,
       error: null,
-      selectedTypes: ['総人口', '年少人口', '生産年齢人口', '老年人口'],
+      selectedTypes: ['総人口'],
+      selectedPrefecture: { prefCode: 1, prefName: '北海道' },
     });
     renderWithProvider(<ChartContainer />);
-    expect(screen.getByText('Population Composition')).toBeInTheDocument();
+    expect(screen.getByText('北海道の人口推移グラフ')).toBeInTheDocument();
 
     // Check that the chart wrapper is present
     const chartWrapper = screen.getByTestId('chart-wrapper');

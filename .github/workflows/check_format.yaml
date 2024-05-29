@@ -11,19 +11,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16.x"
+          node-version: '16.x'
 
       - name: Install Dependencies
-        run: |
-          cd population-visualization
-          npm install --legacy-peer-deps
+        run: npm install --legacy-peer-deps
 
       - name: Run prettier
-        run: |
-          cd population-visualization
-          npx prettier --check .
+        run: npx prettier --check .
 
       - name: Run eslint
-        run: |
-          cd population-visualization
-          npx eslint .
+        run: npx eslint .

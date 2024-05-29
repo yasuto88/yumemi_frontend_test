@@ -9,7 +9,6 @@ import {
   TransformedData,
 } from '../../../reducks/populationComposition/types';
 import { selectPopulationType } from '../../../reducks/populationType';
-import { selectPrefecture } from '../../../reducks/selectedPrefecture/slices';
 import { selectSelectedPrefecture } from '../../../reducks/selectedPrefecture';
 
 export const usePopulationComposition = () => {
