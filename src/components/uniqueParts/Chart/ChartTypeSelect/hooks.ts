@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { AppDispatch, RootState } from '../../../../reducks/store';
+import { AppDispatch } from '../../../../reducks/store';
 import {
   PopulationType,
   selectPopulationType,
@@ -12,7 +12,6 @@ export const usePopulationType = () => {
 
   const handleToggleType = (type: PopulationType) => {
     dispatch(togglePopulationType(type));
-    console.log('PopulationType[]:', selectedTypes);
   };
 
   const isChecked = (type: PopulationType) => {

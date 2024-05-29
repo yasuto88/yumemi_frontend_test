@@ -20,7 +20,7 @@ const ModalPresentational: React.FC<Props> = ({
   closeModal,
 }) => {
   return (
-    <div>
+    <div data-testid="modal-presentational">
       <button className="open-modal-button" onClick={openModal}>
         {buttonText}
       </button>

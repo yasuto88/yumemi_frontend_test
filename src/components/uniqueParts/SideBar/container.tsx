@@ -1,8 +1,8 @@
 import React from 'react';
 import SideBarPresentational, { ContainerProps } from './presenter';
 
-const ChartContainer: React.FC<ContainerProps> = (props) => {
-  return <SideBarPresentational />;
+const SideBarContainer: React.FC<ContainerProps> = (props) => {
+  return <SideBarPresentational {...props} />;
 };
 
-export default ChartContainer;
+export default SideBarContainer;

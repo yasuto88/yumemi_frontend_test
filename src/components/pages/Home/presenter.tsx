@@ -25,10 +25,7 @@ const HomePresentational: React.FC<Props> = ({
     {isPc && <SideBar className="sidebar" />}
     <div className="main-content">
       <Header />
-      {isTablet && (
-        <Modal children={<CheckBoxGroup />} buttonText="都道府県を選択" />
-      )}
-      {isSp && (
+      {(isSp || isTablet) && (
         <Modal children={<CheckBoxGroup />} buttonText="都道府県を選択" />
       )}
       <Chart />
