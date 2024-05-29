@@ -4,19 +4,19 @@
 
 ### クローン
 
-``` bash
+```bash
 git clone https://github.com/yasuto88/yumemi_frontend_test
 ```
 
-### node_modulesのインストール
+### node_modules のインストール
 
-``` bash
+```bash
 npm install
 ```
 
 ### 起動
 
-``` bash
+```bash
 npm start
 ```
 
@@ -28,8 +28,8 @@ npm start
 
 追加の仕様
 
-- レスポンシブに対応するため、PCサイズはサイドバーを、それ以下のサイズはモーダルウィンドウを表示し、都道府県を選択する
-- エラー時のUIを用意する
+- レスポンシブに対応するため、PC サイズはサイドバーを、それ以下のサイズはモーダルウィンドウを表示し、都道府県を選択する
+- エラー時の UI を用意する
 
 ## 環境
 
@@ -52,9 +52,9 @@ npm start
 
 - Atomic Design
 - MVC
-- Reducksパターン
+- Reducks パターン
 
-参考:[【中~大規模チーム向け】React+Reduxの設計に困ったあなたへ送る設計案](https://zenn.dev/yuki_tu/articles/29e61e7634b272)
+参考:[【中~大規模チーム向け】React+Redux の設計に困ったあなたへ送る設計案](https://zenn.dev/yuki_tu/articles/29e61e7634b272)
 
 ## CI/CD
 
@@ -63,11 +63,11 @@ npm start
 - eslint
 - prettier
 
-CDは行っていない
+CD は行っていない
 
 ## テスト
 
-1. **unitてすと**
+1. **unit てすと**
 
    - container
    - hook
@@ -75,13 +75,13 @@ CDは行っていない
 
 2. **レスポンシブに対応できているか**
 
-    320pxから1122pxまでをテスト
+   320px から 1122px までをテスト
 
-   - UIが崩れていないか
+   - UI が崩れていないか
    - 画面が見切れていないか
    - テキストが見やすい大きさか
 
-3. **integrationテスト**
+3. **integration テスト**
 
    - 都道府県のチェックボックスを選択するとその人口データを取得
    - 人口データが取得されたら、そのデータをチャートに表示
@@ -89,8 +89,8 @@ CDは行っていない
 
 ## 感想・反省点
 
-- gitの運用に慣れておらず、もっと勉強と練習をする必要がある
+- git の運用に慣れておらず、もっと勉強と練習をする必要がある
 - テストが意外と難しく、時間がかかってしまった。
-- MUIを参考にスタイリングしたが、なぜか古臭い感じがする
-- チャートを表示するために、Rechartsを使用したが、`Warning: XAxis: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.`という警告が表示され、まだ解決できていない
+- MUI を参考にスタイリングしたが、なぜか古臭い感じがする
+- チャートを表示するために、Recharts を使用したが、`Warning: XAxis: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.`という警告が表示され、まだ解決できていない
 - ダークモードや、l10n、アクセシビリティに対応できると、もう少しレベルの高くかっこいいアプリが作れると思った。
