@@ -1,46 +1,96 @@
-# Getting Started with Create React App
+# 株式会社ゆめみのサマーインターン試験
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ビルド手順
 
-## Available Scripts
+### クローン
 
-In the project directory, you can run:
+``` bash
+git clone https://github.com/yasuto88/yumemi_frontend_test
+```
 
-### `npm start`
+### node_modulesのインストール
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+``` bash
+npm install
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 起動
 
-### `npm test`
+``` bash
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 仕様
 
-### `npm run build`
+以下の参考に作成
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [フロントエンドコーディング試験](https://yumemi.notion.site/0e9ef27b55704d7882aab55cc86c999d)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+追加の仕様
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- レスポンシブに対応するため、PCサイズはサイドバーを、それ以下のサイズはモーダルウィンドウを表示し、都道府県を選択する
+- エラー時のUIを用意する
 
-### `npm run eject`
+## 環境
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **@reduxjs/toolkit**: ^2.2.5
+- **@testing-library/jest-dom**: ^5.17.0
+- **@testing-library/react**: ^13.4.0
+- **@testing-library/user-event**: ^13.5.0
+- **@types/jest**: ^27.5.2
+- **@types/react**: ^18.3.2
+- **@types/react-dom**: ^18.3.0
+- **react**: ^18.3.1
+- **react-dom**: ^18.3.1
+- **react-redux**: ^9.1.2
+- **react-scripts**: 5.0.1
+- **recharts**: ^2.12.7
+- **typescript**: ^4.9.5
+- **web-vitals**: ^2.1.4
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## アーキテクチャ・デザインパターン
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Atomic Design
+- MVC
+- Reducksパターン
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+参考:[【中~大規模チーム向け】React+Reduxの設計に困ったあなたへ送る設計案](https://zenn.dev/yuki_tu/articles/29e61e7634b272)
 
-## Learn More
+## CI/CD
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+プルリクエスト時に以下を実行
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- eslint
+- prettier
+
+CDは行っていない
+
+## テスト
+
+1. **unitてすと**
+
+   - container
+   - hook
+   - presenter
+
+2. **レスポンシブに対応できているか**
+
+    320pxから1122pxまでをテスト
+
+   - UIが崩れていないか
+   - 画面が見切れていないか
+   - テキストが見やすい大きさか
+
+3. **integrationテスト**
+
+   - 都道府県のチェックボックスを選択するとその人口データを取得
+   - 人口データが取得されたら、そのデータをチャートに表示
+   - `総人口`、`年少人口`、`生産年齢人口`、`老年人口`のチェックボックスを選択し、人口データをフィルタリング
+
+## 感想・反省点
+
+- gitの運用に慣れておらず、もっと勉強と練習をする必要がある
+- テストが意外と難しく、時間がかかってしまった。
+- MUIを参考にスタイリングしたが、なぜか古臭い感じがする
+- チャートを表示するために、Rechartsを使用したが、`Warning: XAxis: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.`という警告が表示され、まだ解決できていない
+- ダークモードや、l10n、アクセシビリティに対応できると、もう少しレベルの高くかっこいいアプリが作れると思った。
