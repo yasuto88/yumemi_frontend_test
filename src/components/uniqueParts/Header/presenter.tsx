@@ -9,7 +9,7 @@ export type ContainerProps = {
 type Props = {} & ContainerProps;
 
 const HeaderPresentational: React.FC<Props> = ({ className }) => (
-  <header className={`header ${className}`}>
+  <header className={`header ${className}`} data-testid="header-presentational">
     <HeaderTitle />
   </header>
 );

@@ -10,7 +10,7 @@ type Props = {} & ContainerProps;
 
 const SideBarPresentational: React.FC<Props> = ({ className }) => {
   return (
-    <div className={`side-bar ${className}`}>
+    <div className={`side-bar ${className}`} data-testid="side-bar">
       <h3>都道府県</h3>
       <CheckBoxGroup />
     </div>
