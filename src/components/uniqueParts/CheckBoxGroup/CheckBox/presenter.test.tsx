@@ -13,7 +13,7 @@ describe('CheckBoxPresentational', () => {
         label={label}
         checked={checked}
         onChange={onChange}
-        className="test-class"
+        id="test-id"
       />,
     );
     return { onChange, container };
@@ -46,11 +46,5 @@ describe('CheckBoxPresentational', () => {
 
     fireEvent.click(checkbox);
     expect(onChange).toHaveBeenCalledWith(true);
-  });
-
-  test('applies the className prop', () => {
-    const { container } = setup();
-    const checkboxContainer = container.querySelector('.checkbox');
-    expect(checkboxContainer).toHaveClass('test-class');
   });
 });

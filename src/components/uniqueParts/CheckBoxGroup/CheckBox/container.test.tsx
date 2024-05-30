@@ -21,7 +21,7 @@ describe('CheckBoxContainer', () => {
       selectedPrefecture: label,
     });
 
-    render(<CheckBoxContainer className="test-class" label={label} />);
+    render(<CheckBoxContainer id="test-id" label={label} />);
 
     const checkbox = screen.getByRole('checkbox') as HTMLInputElement;
     const labelText = screen.getByText(label.prefName);
@@ -40,7 +40,7 @@ describe('CheckBoxContainer', () => {
       selectedPrefecture: label,
     });
 
-    render(<CheckBoxContainer className="test-class" label={label} />);
+    render(<CheckBoxContainer id="test-id" label={label} />);
 
     const checkbox = screen.getByRole('checkbox') as HTMLInputElement;
     fireEvent.click(checkbox);
