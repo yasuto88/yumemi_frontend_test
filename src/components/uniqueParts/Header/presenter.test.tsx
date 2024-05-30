@@ -9,26 +9,15 @@ jest.mock('./HeaderTitle/index', () => ({
 
 describe('HeaderPresentational', () => {
   test('renders HeaderTitle component', () => {
-    const { getByTestId } = render(
-      <HeaderPresentational className="test-class" />,
-    );
+    const { getByTestId } = render(<HeaderPresentational id="test-id" />);
 
     const headerTitle = getByTestId('header-title');
     expect(headerTitle).toBeInTheDocument();
   });
 
-  test('applies the given className', () => {
-    const { container } = render(
-      <HeaderPresentational className="test-class" />,
-    );
-    const header = container.querySelector('.header');
-
-    expect(header).toHaveClass('test-class');
-  });
-
-  test('applies the default className', () => {
+  test('applies the default id', () => {
     const { container } = render(<HeaderPresentational />);
-    const header = container.querySelector('.header');
+    const header = container.querySelector('#header');
 
     expect(header).toBeInTheDocument();
   });
