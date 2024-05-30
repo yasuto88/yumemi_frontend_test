@@ -15,23 +15,24 @@ import { ChartTypeSelect } from './ChartTypeSelect';
 import { SelectedPrefecture } from '../../../reducks/selectedPrefecture';
 
 export type ContainerProps = {
-  className?: string;
+  id?: string;
 };
 
 type Props = {
-  data: PopulationCompositionData[] | null;
-  selectedPrefecture: SelectedPrefecture | null;
+  data: PopulationCompositionData[] | null; // グラフに表示するデータ
+  selectedPrefecture: SelectedPrefecture | null; // 選択された都道府県
 } & ContainerProps;
 
+// グラフの色を設定
 const colorMap: { [key: string]: string } = {
-  総人口: '#36cfc9', // general population
-  年少人口: '#a0d911', // young population
-  生産年齢人口: '#4096ff', // working age population
-  老年人口: '#9254de', // elderly population
+  総人口: '#36cfc9',
+  年少人口: '#a0d911',
+  生産年齢人口: '#4096ff',
+  老年人口: '#9254de',
 };
 
 const ChartPresentational: React.FC<Props> = ({
-  className,
+  id,
   data,
   selectedPrefecture,
 }) => {
@@ -50,14 +51,14 @@ const ChartPresentational: React.FC<Props> = ({
   }, []);
 
   return (
-    <div className={`chart ${className}`}>
+    <div id={id}>
       {selectedPrefecture ? (
         <h2>{selectedPrefecture.prefName}の人口推移グラフ</h2>
       ) : (
         <h2>都道府県を選択してください</h2>
       )}
       {data && data.length > 0 ? (
-        <div className="chart-wrapper" data-testid="chart-wrapper">
+        <div id="chart-wrapper" data-testid="chart-wrapper">
           <ChartTypeSelect />
           <ResponsiveContainer width="100%" height={400}>
             <LineChart
@@ -77,7 +78,7 @@ const ChartPresentational: React.FC<Props> = ({
                     type="monotone"
                     dataKey={label}
                     name={label}
-                    stroke={colorMap[label] || '#000000'} // Use the mapped color or default to black
+                    stroke={colorMap[label] || '#000000'}
                     activeDot={{ r: 8 }}
                   />
                 ))}

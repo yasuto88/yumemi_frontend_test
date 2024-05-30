@@ -7,23 +7,19 @@ import { SideBar } from '../../uniqueParts/SideBar';
 import { Modal } from '../../uiParts/Modal';
 
 export type ContainerProps = {
-  className?: string;
-  isSp?: boolean;
-  isTablet?: boolean;
-  isPc?: boolean;
+  id?: string;
+  isSp?: boolean; // スマホかどうか
+  isTablet?: boolean; // タブレットかどうか
+  isPc?: boolean; // PCかどうか
 };
 
 type Props = {} & ContainerProps;
 
-const HomePresentational: React.FC<Props> = ({
-  className,
-  isSp,
-  isTablet,
-  isPc,
-}) => (
-  <div className={`home ${className}`}>
-    {isPc && <SideBar className="sidebar" />}
-    <div className="main-content">
+const HomePresentational: React.FC<Props> = ({ id, isSp, isTablet, isPc }) => (
+  <div id={id || 'home'}>
+    {/* PCサイズの時のみ表示 */}
+    {isPc && <SideBar id="side-bar" />}
+    <div id="main-content">
       <Header />
       {(isSp || isTablet) && (
         <Modal children={<CheckBoxGroup />} buttonText="都道府県を選択" />

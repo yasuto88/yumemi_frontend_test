@@ -9,12 +9,11 @@ describe('HeaderTitle', () => {
     expect(headerElement).toBeInTheDocument();
   });
 
-  it('applies the passed className', () => {
+  it('applies the passed id', () => {
     const title = 'Test Title';
-    const className = 'custom-class';
-    render(<HeaderTitle title={title} className={className} />);
+    const id = 'custom-id';
+    render(<HeaderTitle title={title} id={id} />);
     const headerElement = screen.getByRole('heading', { name: title });
-    expect(headerElement).toHaveClass('header-title');
-    expect(headerElement).toHaveClass(className);
+    expect(headerElement).toHaveAttribute('id', 'header-title custom-id');
   });
 });

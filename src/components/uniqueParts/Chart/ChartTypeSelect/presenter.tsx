@@ -3,17 +3,17 @@ import { PopulationType } from '../../../../reducks/populationType';
 import './presenter.css';
 
 export type ContainerProps = {
-  className?: string;
+  id?: string;
 };
 
 type Props = {
-  selectedType: PopulationType[];
-  onChange: (type: PopulationType) => void;
-  checked: (type: PopulationType) => boolean;
+  selectedType: PopulationType[]; // 選択されたチャートの種類
+  onChange: (type: PopulationType) => void; // チェックボックスの状態を変更する関数
+  checked: (type: PopulationType) => boolean; // チェックボックスの状態を取得する関数
 } & ContainerProps;
 
 const ChartTypeSelectPresentational: React.FC<Props> = ({
-  className,
+  id,
   onChange,
   checked,
 }) => {
@@ -24,9 +24,9 @@ const ChartTypeSelectPresentational: React.FC<Props> = ({
     '老年人口',
   ];
   return (
-    <div className={`chart-type-select ${className}`}>
-      {ChartTypeList.map((type) => (
-        <div className="checkbox" key={type}>
+    <div id={`chart-type-select${id ? `-${id}` : ''}`}>
+      {ChartTypeList.map((type, index) => (
+        <div id={`checkbox-${index}`} key={type}>
           <input
             type="checkbox"
             id={`checkbox-${type}`}
@@ -35,10 +35,7 @@ const ChartTypeSelectPresentational: React.FC<Props> = ({
             title={type}
             aria-label={type}
           />
-          <label
-            className={`sample_label ${getLabelClass(type)}`}
-            htmlFor={`checkbox-${type}`}
-          >
+          <label id={getLabelClass(type)} htmlFor={`checkbox-${type}`}>
             {type}
           </label>
         </div>

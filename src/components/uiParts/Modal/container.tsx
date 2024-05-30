@@ -3,6 +3,7 @@ import useModal from './hooks';
 import ModalPresentational, { ContainerProps } from './presenter';
 
 const ModalContainer: React.FC<ContainerProps> = (props) => {
+  // モーダルの状態を管理するカスタムフック
   const { isOpen, openModal, closeModal } = useModal();
 
   return (

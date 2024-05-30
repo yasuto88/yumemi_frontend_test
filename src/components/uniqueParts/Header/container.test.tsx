@@ -15,7 +15,7 @@ jest.mock('./presenter', () => {
 
 describe('HeaderContainer', () => {
   test('should pass props to HeaderPresentational', () => {
-    const mockProps = { className: 'test-class' };
+    const mockProps = { id: 'test-id' };
 
     render(<HeaderContainer {...mockProps} />);
 

@@ -2,12 +2,13 @@ import React from 'react';
 import './presenter.css';
 
 interface ErrorProps {
-  message: string;
+  message: string; // エラーメッセージ
 }
 
+// エラーメッセージを表示するコンポーネント
 const Error: React.FC<ErrorProps> = ({ message }) => {
   return (
-    <div className="error-container">
+    <div id="error-container">
       <span>{message}</span>
     </div>
   );

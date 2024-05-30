@@ -3,13 +3,14 @@ import './presenter.css';
 import { HeaderTitle } from './HeaderTitle/index';
 
 export type ContainerProps = {
-  className?: string;
+  id?: string;
 };
 
-type Props = {} & ContainerProps;
-
-const HeaderPresentational: React.FC<Props> = ({ className }) => (
-  <header className={`header ${className}`} data-testid="header-presentational">
+const HeaderPresentational: React.FC<ContainerProps> = ({ id }) => (
+  <header
+    id={`header${id ? ` ${id}` : ''}`}
+    data-testid="header-presentational"
+  >
     <HeaderTitle />
   </header>
 );

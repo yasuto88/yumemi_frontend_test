@@ -11,11 +11,11 @@ describe('Error component', () => {
     expect(screen.getByText(message)).toBeInTheDocument();
   });
 
-  test('should have correct class name', () => {
+  test('should have correct id name', () => {
     const message = 'An error occurred';
     const { container } = render(<Error message={message} />);
 
-    // コンポーネントが正しいクラス名を持っているか確認
-    expect(container.firstChild).toHaveClass('error-container');
+    // コンポーネントが正しいidを持っているか確認
+    expect(container.firstChild).toHaveAttribute('id', 'error-container');
   });
 });

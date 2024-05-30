@@ -3,33 +3,36 @@ import './presenter.css';
 import { SelectedPrefecture } from '../../../../reducks/selectedPrefecture';
 
 export type ContainerProps = {
-  className?: string;
-  label: SelectedPrefecture;
+  id?: string;
+  label: SelectedPrefecture; // 都道府県の情報
 };
 
 type Props = {
-  checked: boolean;
-  className?: string;
-  onChange: (checked: boolean) => void;
+  checked: boolean; // チェックボックスの選択状態
+  id?: string;
+  onChange: (checked: boolean) => void; // チェックボックスの選択状態を変更する関数
 } & ContainerProps;
 
 const CheckBoxPresentational: React.FC<Props> = ({
   label,
   checked,
   onChange,
-  className,
+  id,
 }) => (
-  <div className={`checkbox ${className}`}>
+  <div id={id}>
     <input
       type="checkbox"
-      id={`checkbox-${label.prefCode}`}
+      id={`checkbox-input-${label.prefCode}`}
       checked={checked}
       onChange={(e) => onChange(e.target.checked)}
       key={label.prefCode}
       title={label.prefName}
       aria-label={label.prefName}
     />
-    <label className="sample_label" htmlFor={`checkbox-${label.prefCode}`}>
+    <label
+      id={`label-${label.prefName}`}
+      htmlFor={`checkbox-input-${label.prefCode}`}
+    >
       {label.prefName}
     </label>
   </div>
