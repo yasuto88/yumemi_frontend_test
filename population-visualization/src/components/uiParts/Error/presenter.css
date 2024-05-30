@@ -1,8 +1,0 @@
-.error-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60vh;
-  color: red;
-  font-size: 1.2em;
-}

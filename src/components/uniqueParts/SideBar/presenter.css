@@ -1,0 +1,8 @@
+#side-bar {
+  padding: 0 16px;
+  width: 160px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  border-right: 1px solid #e9ecef;
+  overflow-y: auto;
+}
