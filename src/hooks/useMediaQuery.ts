@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 
+// メディアクエリの定義
 export const mediaQuery = {
   sp: 'max-width: 751px',
   tablet: '(min-width: 752px) and (max-width: 1121px)',
   pc: 'min-width: 1122px',
 };
 
+// メディアクエリを受け取り、マッチしているかどうかを返す
 export const useMediaQuery = (query: string) => {
   const formattedQuery = `(${query})`;
   const [match, setMatch] = useState<boolean>(
@@ -14,10 +16,6 @@ export const useMediaQuery = (query: string) => {
 
   useEffect(() => {
     const mql = matchMedia(formattedQuery);
-
-    if (mql.media === 'not all' || mql.media === 'invalid') {
-      console.error(`useMediaQuery Error: Invalid media query`);
-    }
 
     const handleChange = (e: MediaQueryListEvent) => {
       setMatch(e.matches);

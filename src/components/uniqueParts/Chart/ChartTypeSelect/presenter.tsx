@@ -35,10 +35,7 @@ const ChartTypeSelectPresentational: React.FC<Props> = ({
             title={type}
             aria-label={type}
           />
-          <label
-            id={getLabelClass(type)}
-            htmlFor={`checkbox-${type}`}
-          >
+          <label id={getLabelClass(type)} htmlFor={`checkbox-${type}`}>
             {type}
           </label>
         </div>

@@ -13,6 +13,7 @@ import {
 } from '../../../reducks/populationComposition';
 import { fetchPopulation } from '../../../reducks/populationComposition/operations';
 
+// 都道府県一覧を取得するカスタムフック
 export const useFetchPrefectures = (): PrefecturesState => {
   const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
@@ -24,6 +25,7 @@ export const useFetchPrefectures = (): PrefecturesState => {
   return prefecturesState;
 };
 
+// 人口データを取得するカスタムフック
 export const useFetchPopulation = () => {
   const dispatch: AppDispatch = useDispatch();
   const selectedPrefecture = useSelector(selectSelectedPrefecture);

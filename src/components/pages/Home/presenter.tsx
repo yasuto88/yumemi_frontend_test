@@ -8,16 +8,17 @@ import { Modal } from '../../uiParts/Modal';
 
 export type ContainerProps = {
   id?: string;
-  isSp?: boolean;
-  isTablet?: boolean;
-  isPc?: boolean;
+  isSp?: boolean; // スマホかどうか
+  isTablet?: boolean; // タブレットかどうか
+  isPc?: boolean; // PCかどうか
 };
 
 type Props = {} & ContainerProps;
 
 const HomePresentational: React.FC<Props> = ({ id, isSp, isTablet, isPc }) => (
-  <div id={`home ${id}`}>
-    {isPc && <SideBar id="sidebar" />}
+  <div id={id || 'home'}>
+    {/* PCサイズの時のみ表示 */}
+    {isPc && <SideBar id="side-bar" />}
     <div id="main-content">
       <Header />
       {(isSp || isTablet) && (

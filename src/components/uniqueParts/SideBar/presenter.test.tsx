@@ -19,7 +19,7 @@ describe('SideBarPresentational', () => {
 
     const sidebarElement = screen.getByTestId('side-bar');
     expect(sidebarElement).toBeInTheDocument();
-    expect(sidebarElement).toHaveAttribute('id', 'side-bar test-id');
+    expect(sidebarElement).toHaveAttribute('id', 'test-id');
   });
 
   test('should render title and CheckBoxGroup component', () => {

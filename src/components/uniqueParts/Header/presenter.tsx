@@ -6,9 +6,7 @@ export type ContainerProps = {
   id?: string;
 };
 
-type Props = {} & ContainerProps;
-
-const HeaderPresentational: React.FC<Props> = ({ id }) => (
+const HeaderPresentational: React.FC<ContainerProps> = ({ id }) => (
   <header
     id={`header${id ? ` ${id}` : ''}`}
     data-testid="header-presentational"

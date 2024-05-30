@@ -2,14 +2,14 @@ import React from 'react';
 import './presenter.css';
 
 export type ContainerProps = {
-  children: React.ReactNode;
-  buttonText: string;
+  children: React.ReactNode; // モーダル内に表示するコンテンツ
+  buttonText: string; // モーダルを開くためのボタンのテキスト
 };
 
 type Props = {
-  isOpen: boolean;
-  openModal: () => void;
-  closeModal: () => void;
+  isOpen: boolean; // モーダルが開いているかどうか
+  openModal: () => void; // モーダルを開く関数
+  closeModal: () => void; // モーダルを閉じる関数
 } & ContainerProps;
 
 const ModalPresentational: React.FC<Props> = ({

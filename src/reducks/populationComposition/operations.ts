@@ -6,13 +6,14 @@ import {
 } from './slices';
 import { PopulationCompositionResponse } from './types';
 
-// .envからAPIキーを取得する
+// .env.localからAPIキーを取得する
 const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 
 export const fetchPopulation =
   (prefCode: number) => async (dispatch: AppDispatch) => {
     try {
       dispatch(fetchPopulationStart());
+      // RESASのAPIを叩いて人口構成データを取得
       const response = await fetch(
         `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=${prefCode}&cityCode=-`,
         {

@@ -5,8 +5,8 @@ import { useFetchPopulation, useFetchPrefectures } from './hooks';
 import { useMediaQuery, mediaQuery } from '../../../hooks/useMediaQuery';
 
 const HomeContainer: React.FC<ContainerProps> = (props) => {
-  useFetchPrefectures();
-  useFetchPopulation();
+  useFetchPrefectures(); // prefecturesの取得
+  useFetchPopulation(); // populationの取得
   const isSp = useMediaQuery(mediaQuery.sp);
   const isTablet = useMediaQuery(mediaQuery.tablet);
   const isPc = useMediaQuery(mediaQuery.pc);

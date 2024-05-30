@@ -53,7 +53,6 @@ describe('ModalPresentational component', () => {
     const { container } = renderComponent(true, jest.fn(), closeModalMock);
 
     // closeというidを持つ要素をクリック
-    // const closeButton = container.querySelector('.close');
     const closeButton = container.querySelector('#close');
     expect(closeButton).not.toBeNull();
 

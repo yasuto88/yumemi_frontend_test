@@ -1,4 +1,4 @@
-[id^="checkbox-"] {
+[id^='checkbox-'] {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,18 +10,18 @@
   position: relative;
 }
 
-[id^="checkbox-"] input[type='checkbox'] {
+[id^='checkbox-'] input[type='checkbox'] {
   display: none; /* checkboxを非表示にする */
 }
 
-[id^="label-"] {
+[id^='label-'] {
   position: relative;
   padding: 4px 0 0 28px; /* ボックス内側の余白を指定する */
   cursor: pointer;
 }
 
-[id^="label-"]:after,
-[id^="label-"]:before {
+[id^='label-']:after,
+[id^='label-']:before {
   position: absolute;
   content: '';
   display: block;
@@ -29,7 +29,7 @@
   transition: opacity 0.3s ease;
 }
 
-[id^="label-"]:after {
+[id^='label-']:after {
   left: 0;
   margin-top: -9px;
   width: 18px;
@@ -38,7 +38,7 @@
   border-radius: 4px;
 }
 
-[id^="label-"]:before {
+[id^='label-']:before {
   left: 7px;
   margin-top: -5px;
   width: 5px;
@@ -49,10 +49,10 @@
   opacity: 0;
 }
 
-input[type='checkbox']:checked + [id^="label-"]:before {
+input[type='checkbox']:checked + [id^='label-']:before {
   opacity: 1;
 }
 
-[id^="label-"]:hover:after {
+[id^='label-']:hover:after {
   border-color: #0171bd;
 }

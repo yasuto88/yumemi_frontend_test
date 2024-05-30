@@ -6,11 +6,9 @@ export type ContainerProps = {
   id?: string;
 };
 
-type Props = {} & ContainerProps;
-
-const SideBarPresentational: React.FC<Props> = ({ id }) => {
+const SideBarPresentational: React.FC<ContainerProps> = ({ id }) => {
   return (
-    <div id={`side-bar ${id}`} data-testid="side-bar">
+    <div id={id} data-testid="side-bar">
       <h3>都道府県</h3>
       <CheckBoxGroup />
     </div>

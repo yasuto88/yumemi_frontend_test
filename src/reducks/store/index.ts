@@ -4,7 +4,9 @@ import { selectedPrefectureReducer } from '../selectedPrefecture';
 import { populationReducer } from '../populationComposition';
 import { populationTypeReducer } from '../populationType';
 
+// ストアを生成
 export const store = configureStore({
+  // リデューサーを指定
   reducer: {
     prefectures: prefecturesReducer,
     selectedPrefecture: selectedPrefectureReducer,

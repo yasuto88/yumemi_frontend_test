@@ -38,7 +38,7 @@ const populationSlice = createSlice({
     ) {
       state.loading = false;
 
-      // データ変換をここで実施
+      // データ変換を実施
       const transformedData: PopulationCompositionData[] = transformApiResponse(
         action.payload,
       );

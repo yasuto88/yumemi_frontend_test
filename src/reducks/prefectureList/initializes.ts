@@ -1,10 +1,8 @@
 import { PrefecturesState } from './types';
 
+// 初期値
 export const initialState: PrefecturesState = {
-  list: [
-    { prefCode: 1, prefName: 'Hokkaido' },
-    { prefCode: 2, prefName: 'Aomori' },
-  ],
+  list: [],
   loading: false,
   error: null,
 };

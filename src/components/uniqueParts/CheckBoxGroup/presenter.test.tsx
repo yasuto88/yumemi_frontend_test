@@ -35,6 +35,6 @@ describe('CheckBoxGroupPresentational', () => {
     );
 
     const groupContainer = container.firstChild;
-    expect(groupContainer).toHaveAttribute('id', 'checkbox-group custom-id');
+    expect(groupContainer).toHaveAttribute('id', 'custom-id');
   });
 });

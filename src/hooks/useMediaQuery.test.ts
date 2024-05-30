@@ -8,11 +8,11 @@ describe('useMediaQuery', () => {
     matchMediaMock = jest.fn().mockImplementation((query) => {
       return {
         matches: false,
-        media: query, // mediaプロパティを追加
+        media: query,
         onchange: null,
         addEventListener: jest.fn(),
         removeEventListener: jest.fn(),
-        addListener: jest.fn(), // 古いAPIのサポート用
+        addListener: jest.fn(),
         removeListener: jest.fn(),
         dispatchEvent: jest.fn(),
       };
