@@ -14,14 +14,14 @@
 }
 
 /* メッセージラッパー */
-.message-wrapper {
+#message-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 /* メッセージBOX（テキスト部） */
-#modal .message-box {
+#modal #message-box {
   max-width: 500px; /* 最大幅を設定 */
   max-height: 80vh; /* 最大高さを設定 */
   width: 90%;
@@ -37,13 +37,13 @@
 }
 
 /* 閉じる領域のためのアンカー */
-#modal .close {
+#modal #close {
   position: relative;
   display: block;
 }
 
 /* 枠外の閉じる領域 */
-#modal .close::before {
+#modal #close::before {
   content: '';
   background: rgba(0, 0, 0, 0.6);
   width: 100%;
@@ -55,7 +55,7 @@
 }
 
 /* 閉じるボタン */
-.close-button {
+#close-button {
   color: white;
   position: absolute;
   top: 10px;
@@ -73,7 +73,7 @@
 }
 
 /* モーダルを開くボタン */
-.open-modal-button {
+#open-modal-button {
   margin: 16px;
   background-color: #007bff;
   color: white;
@@ -85,6 +85,6 @@
   transition: background-color 0.3s ease;
 }
 
-.open-modal-button:hover {
+#open-modal-button:hover {
   background-color: #0056b3;
 }

@@ -1,8 +1,8 @@
-.chart {
+#chart {
   padding: 1rem;
 }
 
-.chart-wrapper {
+#chart-wrapper {
   display: flex;
   flex-direction: column;
   gap: 20px;
