@@ -34,7 +34,7 @@ describe('HomeContainer', () => {
   });
 
   test('should call useFetchPrefectures and useFetchPopulation on mount', () => {
-    render(<HomeContainer className="test-class" />);
+    render(<HomeContainer id="test-id" />);
 
     expect(mockUseFetchPrefectures).toHaveBeenCalled();
     expect(mockUseFetchPopulation).toHaveBeenCalled();
@@ -46,14 +46,14 @@ describe('HomeContainer', () => {
       .mockReturnValueOnce(false) // isTablet
       .mockReturnValueOnce(false); // isPc
 
-    render(<HomeContainer className="test-class" />);
+    render(<HomeContainer id="test-id" />);
 
     expect(HomePresentational).toHaveBeenCalledWith(
       expect.objectContaining({
         isSp: true,
         isTablet: false,
         isPc: false,
-        className: 'test-class',
+        id: 'test-id',
       }),
       {},
     );
@@ -63,14 +63,14 @@ describe('HomeContainer', () => {
       .mockReturnValueOnce(true) // isTablet
       .mockReturnValueOnce(false); // isPc
 
-    render(<HomeContainer className="test-class" />);
+    render(<HomeContainer id="test-id" />);
 
     expect(HomePresentational).toHaveBeenCalledWith(
       expect.objectContaining({
         isSp: false,
         isTablet: true,
         isPc: false,
-        className: 'test-class',
+        id: 'test-id',
       }),
       {},
     );
@@ -80,14 +80,14 @@ describe('HomeContainer', () => {
       .mockReturnValueOnce(false) // isTablet
       .mockReturnValueOnce(true); // isPc
 
-    render(<HomeContainer className="test-class" />);
+    render(<HomeContainer id="test-id" />);
 
     expect(HomePresentational).toHaveBeenCalledWith(
       expect.objectContaining({
         isSp: false,
         isTablet: false,
         isPc: true,
-        className: 'test-class',
+        id: 'test-id',
       }),
       {},
     );
