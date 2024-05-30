@@ -10,10 +10,10 @@ describe('Loading component', () => {
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
-  test('should have correct class names', () => {
+  test('should have correct id names', () => {
     const { container } = render(<Loading />);
 
-    // コンテナが正しいクラス名を持っているか確認
-    expect(container.firstChild).toHaveClass('loading-container');
+    // コンテナが正しいidを持っているか確認
+    expect(container.firstChild).toHaveAttribute('id', 'loading-container');
   });
 });

@@ -3,8 +3,8 @@ import './presenter.css';
 
 const Loading: React.FC = () => {
   return (
-    <div className="loading-container">
-      <div className="spinner"></div>
+    <div id="loading-container">
+      <div id="spinner"></div>
       <span>Loading...</span>
     </div>
   );
