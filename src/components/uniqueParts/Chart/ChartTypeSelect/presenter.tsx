@@ -7,9 +7,9 @@ export type ContainerProps = {
 };
 
 type Props = {
-  selectedType: PopulationType[];
-  onChange: (type: PopulationType) => void;
-  checked: (type: PopulationType) => boolean;
+  selectedType: PopulationType[]; // 選択されたチャートの種類
+  onChange: (type: PopulationType) => void; // チェックボックスの状態を変更する関数
+  checked: (type: PopulationType) => boolean; // チェックボックスの状態を取得する関数
 } & ContainerProps;
 
 const ChartTypeSelectPresentational: React.FC<Props> = ({
@@ -24,9 +24,9 @@ const ChartTypeSelectPresentational: React.FC<Props> = ({
     '老年人口',
   ];
   return (
-    <div id={`chart-type-select${id ? ` ${id}` : ''}`}>
-      {ChartTypeList.map((type) => (
-        <div id="checkbox" key={type}>
+    <div id={`chart-type-select${id ? `-${id}` : ''}`}>
+      {ChartTypeList.map((type, index) => (
+        <div id={`checkbox-${index}`} key={type}>
           <input
             type="checkbox"
             id={`checkbox-${type}`}
@@ -36,7 +36,7 @@ const ChartTypeSelectPresentational: React.FC<Props> = ({
             aria-label={type}
           />
           <label
-            id={`sample_label ${getLabelClass(type)}`}
+            id={getLabelClass(type)}
             htmlFor={`checkbox-${type}`}
           >
             {type}

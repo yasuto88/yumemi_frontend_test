@@ -9,7 +9,7 @@
   background-color: #f9f9f9;
 }
 
-#checkbox {
+[id^="checkbox-"] {
   display: flex;
   align-items: center;
   font-size: 16px;
@@ -20,18 +20,18 @@
   position: relative;
 }
 
-#checkbox input[type='checkbox'] {
+[id^="checkbox-"] input[type='checkbox'] {
   display: none; /* checkboxを非表示にする */
 }
 
-#sample_label {
+[id^="checkbox-"] label {
   position: relative;
   padding: 4px 0 0 28px; /* ボックス内側の余白を指定する */
   cursor: pointer;
 }
 
-#sample_label:after,
-#sample_label:before {
+[id^="checkbox-"] label:after,
+[id^="checkbox-"] label:before {
   position: absolute;
   content: '';
   display: block;
@@ -39,7 +39,7 @@
   transition: opacity 0.3s ease;
 }
 
-#sample_label:after {
+[id^="checkbox-"] label:after {
   left: 0;
   margin-top: -9px;
   width: 18px;
@@ -48,42 +48,42 @@
   border-radius: 4px;
 }
 
-#sample_label:before {
-  left: 6px;
+[id^="checkbox-"] label:before {
+  left: 7px;
   margin-top: -5px;
   width: 5px;
   height: 9px;
-  border-right: 3px solid;
-  border-bottom: 3px solid;
+  border-right: 2px solid #007bff;
+  border-bottom: 2px solid #007bff;
   transform: rotate(45deg);
   opacity: 0;
 }
 
-input[type='checkbox']:checked + label.sample_label:before {
+input[type='checkbox']:checked + label:before {
   opacity: 1;
 }
 
-.sample_label:hover:after {
+[id^="checkbox-"] label:hover:after {
   border-color: #0171bd;
 }
 
 /* カラースタイル */
-label.sample_label.general-population:before {
+label.general-population:before {
   border-right-color: #36cfc9;
   border-bottom-color: #36cfc9;
 }
 
-label.sample_label.young-population:before {
+label.young-population:before {
   border-right-color: #a0d911;
   border-bottom-color: #a0d911;
 }
 
-label.sample_label.working-age-population:before {
+label.working-age-population:before {
   border-right-color: #4096ff;
   border-bottom-color: #4096ff;
 }
 
-label.sample_label.elderly-population:before {
+label.elderly-population:before {
   border-right-color: #9254de;
   border-bottom-color: #9254de;
 }
