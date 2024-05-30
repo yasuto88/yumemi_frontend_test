@@ -18,7 +18,7 @@ const ChartContainer: React.FC<ContainerProps> = (props) => {
 
   return (
     <ChartPresentational
-      className="chart"
+      id="chart"
       data={data}
       selectedPrefecture={selectedPrefecture}
     />

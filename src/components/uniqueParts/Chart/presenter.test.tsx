@@ -47,7 +47,7 @@ describe('ChartPresentational', () => {
     render(
       <Provider store={store}>
         <ChartPresentational
-          className="test-class"
+          id="test-id"
           data={mockData}
           selectedPrefecture={{
             prefCode: 1,
@@ -73,7 +73,7 @@ describe('ChartPresentational', () => {
   test('renders no data message when data is null', () => {
     render(
       <ChartPresentational
-        className="test-class"
+        id="test-id"
         data={null}
         selectedPrefecture={null}
       />,
@@ -85,11 +85,7 @@ describe('ChartPresentational', () => {
 
   test('renders no data message when data is empty', () => {
     render(
-      <ChartPresentational
-        className="test-class"
-        data={[]}
-        selectedPrefecture={null}
-      />,
+      <ChartPresentational id="test-id" data={[]} selectedPrefecture={null} />,
     );
 
     expect(screen.getByText('都道府県を選択してください')).toBeInTheDocument();

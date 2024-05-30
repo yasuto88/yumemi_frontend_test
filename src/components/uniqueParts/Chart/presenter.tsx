@@ -15,7 +15,7 @@ import { ChartTypeSelect } from './ChartTypeSelect';
 import { SelectedPrefecture } from '../../../reducks/selectedPrefecture';
 
 export type ContainerProps = {
-  className?: string;
+  id?: string;
 };
 
 type Props = {
@@ -31,7 +31,7 @@ const colorMap: { [key: string]: string } = {
 };
 
 const ChartPresentational: React.FC<Props> = ({
-  className,
+  id,
   data,
   selectedPrefecture,
 }) => {
@@ -50,14 +50,14 @@ const ChartPresentational: React.FC<Props> = ({
   }, []);
 
   return (
-    <div className={`chart ${className}`}>
+    <div id={`chart ${id}`}>
       {selectedPrefecture ? (
         <h2>{selectedPrefecture.prefName}の人口推移グラフ</h2>
       ) : (
         <h2>都道府県を選択してください</h2>
       )}
       {data && data.length > 0 ? (
-        <div className="chart-wrapper" data-testid="chart-wrapper">
+        <div id="chart-wrapper" data-testid="chart-wrapper">
           <ChartTypeSelect />
           <ResponsiveContainer width="100%" height={400}>
             <LineChart
