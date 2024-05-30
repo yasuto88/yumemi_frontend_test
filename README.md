@@ -8,6 +8,14 @@
 git clone https://github.com/yasuto88/yumemi_frontend_test
 ```
 
+## env ファイルのダウンロード
+
+下記 URL からアクセスを要求し、ダウンロードしてください。
+
+<https://drive.google.com/file/d/16Qj4Zzy5-WoP6NuK1i37ifL6cqA5P4Jg/view?usp=sharing>
+
+ダウンロードできたら、ルートディレクトリに配置してください。
+
 ### node_modules のインストール
 
 ```bash
