@@ -36,11 +36,11 @@ describe('ChartContainer', () => {
       isChecked: mockIsChecked,
     });
 
-    render(<ChartContainer className="test-class" />);
+    render(<ChartContainer id="test-id" />);
 
     expect(mockChartTypeSelectPresentational).toHaveBeenCalledWith(
       expect.objectContaining({
-        className: 'test-class',
+        id: 'test-id',
         checked: mockIsChecked,
         onChange: mockHandleToggleType,
         selectedType: mockSelectedTypes,
@@ -66,7 +66,7 @@ describe('ChartContainer', () => {
       <button onClick={() => onChange('総人口')}>Toggle 総人口</button>
     ));
 
-    render(<ChartContainer className="test-class" />);
+    render(<ChartContainer id="test-id" />);
 
     fireEvent.click(screen.getByText('Toggle 総人口'));
 

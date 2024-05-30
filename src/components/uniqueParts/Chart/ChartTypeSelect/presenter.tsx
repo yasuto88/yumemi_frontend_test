@@ -3,7 +3,7 @@ import { PopulationType } from '../../../../reducks/populationType';
 import './presenter.css';
 
 export type ContainerProps = {
-  className?: string;
+  id?: string;
 };
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
 } & ContainerProps;
 
 const ChartTypeSelectPresentational: React.FC<Props> = ({
-  className,
+  id,
   onChange,
   checked,
 }) => {
@@ -24,9 +24,9 @@ const ChartTypeSelectPresentational: React.FC<Props> = ({
     '老年人口',
   ];
   return (
-    <div className={`chart-type-select ${className}`}>
+    <div id={`chart-type-select${id ? ` ${id}` : ''}`}>
       {ChartTypeList.map((type) => (
-        <div className="checkbox" key={type}>
+        <div id="checkbox" key={type}>
           <input
             type="checkbox"
             id={`checkbox-${type}`}
@@ -36,7 +36,7 @@ const ChartTypeSelectPresentational: React.FC<Props> = ({
             aria-label={type}
           />
           <label
-            className={`sample_label ${getLabelClass(type)}`}
+            id={`sample_label ${getLabelClass(type)}`}
             htmlFor={`checkbox-${type}`}
           >
             {type}

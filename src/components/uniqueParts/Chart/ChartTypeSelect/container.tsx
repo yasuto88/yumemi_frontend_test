@@ -7,7 +7,7 @@ const ChartContainer: React.FC<ContainerProps> = (props) => {
 
   return (
     <ChartTypeSelectPresentational
-      className={props.className}
+      id={props.id}
       checked={isChecked}
       onChange={handleToggleType}
       selectedType={selectedTypes}
