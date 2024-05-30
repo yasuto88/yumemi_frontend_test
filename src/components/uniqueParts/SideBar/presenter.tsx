@@ -3,14 +3,14 @@ import './presenter.css';
 import { CheckBoxGroup } from '../CheckBoxGroup';
 
 export type ContainerProps = {
-  className?: string;
+  id?: string;
 };
 
 type Props = {} & ContainerProps;
 
-const SideBarPresentational: React.FC<Props> = ({ className }) => {
+const SideBarPresentational: React.FC<Props> = ({ id }) => {
   return (
-    <div className={`side-bar ${className}`} data-testid="side-bar">
+    <div id={`side-bar ${id}`} data-testid="side-bar">
       <h3>都道府県</h3>
       <CheckBoxGroup />
     </div>

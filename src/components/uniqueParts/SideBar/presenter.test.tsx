@@ -12,18 +12,18 @@ jest.mock('../CheckBoxGroup', () => ({
 }));
 
 describe('SideBarPresentational', () => {
-  test('should render with given className', () => {
-    const mockProps = { className: 'test-class' };
+  test('should render with given id', () => {
+    const mockProps = { id: 'test-id' };
 
     render(<SideBarPresentational {...mockProps} />);
 
     const sidebarElement = screen.getByTestId('side-bar');
     expect(sidebarElement).toBeInTheDocument();
-    expect(sidebarElement).toHaveClass('side-bar test-class');
+    expect(sidebarElement).toHaveAttribute('id', 'side-bar test-id');
   });
 
   test('should render title and CheckBoxGroup component', () => {
-    render(<SideBarPresentational className="test-class" />);
+    render(<SideBarPresentational id="test-id" />);
 
     // タイトルが正しくレンダリングされているか確認
     expect(screen.getByText('都道府県')).toBeInTheDocument();

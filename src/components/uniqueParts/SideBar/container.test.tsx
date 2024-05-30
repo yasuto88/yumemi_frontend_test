@@ -15,7 +15,7 @@ jest.mock('./presenter', () => {
 
 describe('SideBarContainer', () => {
   test('should pass props to SideBarPresentational', () => {
-    const mockProps = { className: 'test-class' };
+    const mockProps = { id: 'test-id' };
 
     render(<SideBarContainer {...mockProps} />);
 
