@@ -11,14 +11,11 @@ export type CheckBoxOption = {
 
 type Props = {
   options: CheckBoxOption[];
-  className?: string;
+  id?: string;
 };
 
-const CheckBoxGroupPresentational: React.FC<Props> = ({
-  options,
-  className,
-}) => (
-  <div className={`checkbox-group ${className}`}>
+const CheckBoxGroupPresentational: React.FC<Props> = ({ options, id }) => (
+  <div id={`checkbox-group ${id}`}>
     {options.map((option) => (
       <CheckBox label={option.label} key={option.label.prefCode} />
     ))}

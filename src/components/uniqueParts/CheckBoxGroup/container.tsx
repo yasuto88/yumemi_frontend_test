@@ -24,9 +24,7 @@ const CheckBoxContainer: React.FC = () => {
     checked: selectedPrefecture?.prefName === pref.prefName,
   }));
 
-  return (
-    <CheckBoxGroupPresentational options={options} className="checkbox-group" />
-  );
+  return <CheckBoxGroupPresentational options={options} id="checkbox-group" />;
 };
 
 export default CheckBoxContainer;

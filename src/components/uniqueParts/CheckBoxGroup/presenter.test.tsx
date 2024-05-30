@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import CheckBoxGroupPresentational, { CheckBoxOption } from './presenter';
 import { SelectedPrefecture } from '../../../reducks/selectedPrefecture';
 
-// Mock the CheckBox component
 jest.mock('./CheckBox', () => ({
   CheckBox: ({ label }: { label: SelectedPrefecture }) => (
     <div>{label.prefName}</div>
@@ -22,12 +21,7 @@ describe('CheckBoxGroupPresentational', () => {
   });
 
   test('should render checkbox options', () => {
-    render(
-      <CheckBoxGroupPresentational
-        options={mockOptions}
-        className="test-class"
-      />,
-    );
+    render(<CheckBoxGroupPresentational options={mockOptions} id="test-id" />);
 
     mockOptions.forEach((option) => {
       const labelElement = screen.getByText(option.label.prefName);
@@ -35,15 +29,12 @@ describe('CheckBoxGroupPresentational', () => {
     });
   });
 
-  test('should render with custom className', () => {
+  test('should render with custom id', () => {
     const { container } = render(
-      <CheckBoxGroupPresentational
-        options={mockOptions}
-        className="custom-class"
-      />,
+      <CheckBoxGroupPresentational options={mockOptions} id="custom-id" />,
     );
 
     const groupContainer = container.firstChild;
-    expect(groupContainer).toHaveClass('checkbox-group', 'custom-class');
+    expect(groupContainer).toHaveAttribute('id', 'checkbox-group custom-id');
   });
 });
