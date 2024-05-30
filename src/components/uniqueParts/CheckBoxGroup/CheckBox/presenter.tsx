@@ -35,7 +35,7 @@ const CheckBoxPresentational: React.FC<Props> = ({
     >
       {label.prefName}
     </label>
-  </div>
+  </div>  
 );
 
 export default React.memo(CheckBoxPresentational);
