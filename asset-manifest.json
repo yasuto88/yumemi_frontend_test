@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/[yumemi_frontend_test]/static/css/main.011dea5a.css",
-    "main.js": "/[yumemi_frontend_test]/static/js/main.2ec9d89e.js",
-    "static/js/453.42ef89eb.chunk.js": "/[yumemi_frontend_test]/static/js/453.42ef89eb.chunk.js",
-    "index.html": "/[yumemi_frontend_test]/index.html",
-    "main.011dea5a.css.map": "/[yumemi_frontend_test]/static/css/main.011dea5a.css.map",
-    "main.2ec9d89e.js.map": "/[yumemi_frontend_test]/static/js/main.2ec9d89e.js.map",
-    "453.42ef89eb.chunk.js.map": "/[yumemi_frontend_test]/static/js/453.42ef89eb.chunk.js.map"
+    "main.css": "/yumemi_frontend_test/static/css/main.011dea5a.css",
+    "main.js": "/yumemi_frontend_test/static/js/main.1a30f643.js",
+    "static/js/453.42ef89eb.chunk.js": "/yumemi_frontend_test/static/js/453.42ef89eb.chunk.js",
+    "index.html": "/yumemi_frontend_test/index.html",
+    "main.011dea5a.css.map": "/yumemi_frontend_test/static/css/main.011dea5a.css.map",
+    "main.1a30f643.js.map": "/yumemi_frontend_test/static/js/main.1a30f643.js.map",
+    "453.42ef89eb.chunk.js.map": "/yumemi_frontend_test/static/js/453.42ef89eb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.011dea5a.css",
-    "static/js/main.2ec9d89e.js"
+    "static/js/main.1a30f643.js"
   ]
 }
