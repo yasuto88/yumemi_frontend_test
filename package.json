@@ -2,7 +2,7 @@
   "name": "population-visualization",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://yasuto88.github.io/[yumemi_frontend_test]",
+  "homepage": "http://yasuto88.github.io/yumemi_frontend_test",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "@testing-library/jest-dom": "^5.17.0",
